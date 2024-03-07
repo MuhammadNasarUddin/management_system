@@ -1,0 +1,504 @@
+{% extends "layout.html" %} 
+
+
+<title>{% block title %}Rehan School | Home{% endblock %}</title>
+
+
+{% block content %}
+
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Rehan School</h1>
+      <p class="col-md-8 fs-4">
+        We believe that education is a basic right of all human beings, We think
+        that everyone particularly in Pakistan has the right to educate
+        themselves and become a success in their own way. To make this into a
+        reality, we used the most commonly used electronic media device that is
+        a “Mobile Phone” to become a Learning Device, A School!
+      </p>
+      <a href="https://www.rehanschool.com/" target="_blank" class="btn btn-dark btn-lg" type="button">Learn More</a>
+    </div>
+  </div>
+
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6 mt-3">
+      {% comment %} interview section start from here {% endcomment %}
+      <div class="h-100 p-5 text-bg-dark rounded-3">
+        <h2>Interviews</h2>
+        <p>Upload your interviews or check out your past interviews</p>
+        <button
+          class="btn btn-outline-light me-2"
+          data-bs-toggle="modal"
+          data-bs-target="#interview"
+          type="button"
+        >
+          Add Interview
+        </button>
+      
+      </div>
+    </div>
+
+    <!--Interview  Modal -->
+    <div
+      class="modal fade"
+      id="interview"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Interview Form
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/interview/"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="user"
+                      value="{{request.user.username}}"
+                      readonly
+                    />
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label">Interview No.</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="interview_no"
+                      placeholder="Enter Interview No."
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Guest</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="guest_name"
+                      placeholder="Enter Guest Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Topic</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="topic"
+                      placeholder="Enter Topic Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="city"
+                      placeholder="Enter City Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Country</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="country"
+                      placeholder="Enter Country Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Language</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="language"
+                      placeholder="Enter Language Name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Url</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="url"
+                      placeholder="Enter Correct Url"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <button type="Submit" style="float:right;" class="btn btn-outline-success">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} interview section end here {% endcomment %}
+
+
+    {% comment %} faceless section start from here {% endcomment %}
+
+
+    <div class="col-md-6 mt-3">
+      <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+        <h2>Faceless Videos</h2>
+        <p>Upload faceless videos or check out your past videos</p>
+        <button class="btn btn-outline-secondary me-2" data-bs-toggle="modal"
+        data-bs-target="#faceless" type="button">
+          Add Faceless
+        </button>
+      </div>
+    </div>
+
+
+
+    <!--Faceless Modal -->
+
+    <div
+    class="modal fade"
+    id="faceless"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Faceless Form
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            action="/faceless/"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}              
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    value="{{request.user.username}}"
+                    readonly
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Faceless No.</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="faceless_no"
+                    placeholder="Enter Faceless No."
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    placeholder="Enter Title Name"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Url</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="url"
+                    placeholder="Enter Correct Url"
+                    required
+                  />
+                </div>
+              </div>
+            <button type="Submit" style="float:right;" class="btn btn-outline-success">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    {% comment %} faceless section end here {% endcomment %}
+
+
+
+
+
+    {% comment %} posting section start from here {% endcomment %}
+
+    <div class="col-md-6 mt-3">
+      <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+        <h2>Posting</h2>
+        <p>Post something or check out your old posts</p>
+        <button class="btn btn-outline-secondary me-2" data-bs-toggle="modal"
+        data-bs-target="#posting"  type="button">
+          Add Post
+        </button>
+      </div>
+    </div>
+
+
+
+     <!--posting Modal -->
+
+     <div
+     class="modal fade"
+     id="posting"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h1 class="modal-title fs-5" id="exampleModalLabel">
+             Posting Form
+           </h1>
+           <button
+             type="button"
+             class="btn-close"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+         </div>
+         <div class="modal-body">
+           <form
+             action="/posting/"
+             method="post"
+             enctype="multipart/form-data"
+           >
+             {% csrf_token %}              
+ 
+               <div class="col-md-12">
+                 <div class="mb-3">
+                   <label class="form-label">Username</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="username"
+                     value="{{request.user.username}}"
+                     readonly
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Posting No.</label>
+                   <input
+                     type="number"
+                     class="form-control"
+                     name="posting_no"
+                     placeholder="Enter Posting No."
+                     required
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Title</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="title"
+                     placeholder="Enter Title Name"
+                     required
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Url</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="url"
+                     placeholder="Enter Correct Url"
+                     required
+                   />
+                 </div>
+               </div>
+             <button type="Submit" style="float:right;" class="btn btn-outline-success">Submit</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+ 
+ 
+ 
+     {% comment %} posting section end here {% endcomment %}
+
+
+
+
+
+
+
+
+    <div class="col-md-6 mt-3">
+      <div class="h-100 p-5 text-bg-dark rounded-3">
+        <h2>Graphics</h2>
+        <p>Upload Graphics or check out your past graphics</p>
+        <button class="btn btn-outline-light me-2" data-bs-toggle="modal"
+        data-bs-target="#graphic"  type="button">
+          Add Graphics
+        </button>
+      </div>
+    </div>
+
+
+
+
+     <!--posting Modal -->
+
+     <div
+     class="modal fade"
+     id="graphic"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h1 class="modal-title fs-5" id="exampleModalLabel">
+             Graphic Form
+           </h1>
+           <button
+             type="button"
+             class="btn-close"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+         </div>
+         <div class="modal-body">
+           <form
+             action="/graphic/"
+             method="post"
+             enctype="multipart/form-data"
+           >
+             {% csrf_token %}              
+ 
+               <div class="col-md-12">
+                 <div class="mb-3">
+                   <label class="form-label">Username</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="username"
+                     value="{{request.user.username}}"
+                     readonly
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Graphic No.</label>
+                   <input
+                     type="number"
+                     class="form-control"
+                     name="graphic_no"
+                     placeholder="Enter Graphic No."
+                     required
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Title</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="title"
+                     placeholder="Enter Title Name"
+                     required
+                   />
+                 </div>
+ 
+                 <div class="mb-3">
+                   <label class="form-label">Url</label>
+                   <input
+                     type="text"
+                     class="form-control"
+                     name="url"
+                     placeholder="Enter Correct Url"
+                     required
+                   />
+                 </div>
+               </div>
+             <button type="Submit" style="float:right;" class="btn btn-outline-success">Submit</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+ 
+ 
+
+
+
+
+
+
+
+    
+  </div>
+
+  <footer class="pt-3 mt-4 text-body-secondary border-top fs-5 fw-bolder">
+    &copy; 2024 Rehan School 
+  </footer>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %} 
+
+<title>{% block title %}Rehan School | Interviews{% endblock %}</title>
+
+
+{% block content %}
+
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold  text-capitalize">{{request.user.username}}'s Interview</h1>
+    </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered mt-5">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Date</th>
+            <th scope="col">Guest</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Language</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+            <th scope="col">Url</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for inter in interviews %}
+          <tr>
+            <td>{{inter.interview_no}}</td>
+            <td>{{inter.date}}</td>
+            <td>{{inter.guest_name}}</td>
+            <td>{{inter.topic}}</td>
+            <td>{{inter.language}}</td>
+            <td>{{inter.city}}</td>
+            <td>{{inter.country}}</td>
+            <td>
+              <a href="{{ inter.url }}" class="btn btn-success btn-sm" target="_blank">VISIT <i class="bi bi-box-arrow-up-right"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <footer class="pt-3 mt-4 text-body-secondary border-top fs-5 fw-bolder">
+      &copy; 2024 Rehan School 
+    </footer>
+
+
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout.html" %} 
+
+<title>{% block title %}Rehan School | Profile{% endblock %}</title>
+
+
+{% block content %}
+
+
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold  text-capitalize">Details</h1>
+    </div>
+    </div>
+
+    <div class="container">
+      <a href="{% url 'index' %}" type="button" class="btn btn-dark btn-lg"><i class="bi bi-backspace-fill"></i></a>
+    </div>
+   
+
+    
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6 mt-3">
+          <div class="h-100 p-5 text-bg-secondary rounded-3">
+            <h2>Total Interviews</h2>
+            <h1>{{total_interview}}</h1>
+            <a href="{% url 'user_interviews' %}"><button class="btn btn-outline-light" type="button">
+                Interview Details
+            </button>
+            </a>
+          </div>
+        </div>
+        
+        
+        <div class="col-md-6 mt-3">
+            <div class="h-100 p-5 text-bg-success rounded-3">
+              <h2>Total Faceless</h2>
+              <h1>{{total_faceless}}</h1>
+              <a href="{% url 'user_faceless' %}"><button class="btn btn-outline-light" type="button">
+                Faceless Details
+            </button>
+            </a>
+            </div>
+          </div>
+        
+          <div class="col-md-6 mt-3">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Total Posting</h2>
+              <h1>{{total_posting}}</h1>
+              <a href="{% url 'user_posting' %}"><button class="btn btn-outline-light" type="button">
+                Posting Details
+            </button>
+            </a>
+            </div>
+          </div>
+        
+          <div class="col-md-6 mt-3">
+            <div class="h-100 p-5 text-bg-warning rounded-3">
+              <h2>Total Graphics</h2>
+              <h1>{{total_graphic}}</h1>
+              <a href="{% url 'user_graphic' %}"><button class="btn btn-outline-dark" type="button">
+                Graphic Details
+            </button>
+            </a>
+            </div>
+          </div>
+          
+        
+     
+        
+
+
+
+
+
+      </div>
+
+
+
+      <footer class="pt-3 mt-4 text-body-secondary border-top fs-5 fw-bolder">
+        &copy; 2024 Rehan School 
+      </footer>
+
+
+    </div>
+
+
+
+
+{% endblock %}

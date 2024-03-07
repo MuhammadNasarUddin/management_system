@@ -1,0 +1,57 @@
+{% extends "layout.html" %} 
+
+<title>{% block title %}Rehan School | Graphic{% endblock %}</title>
+
+
+{% block content %}
+
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold  text-capitalize">{{request.user.username}}'s Graphic</h1>
+    </div>
+    </div>
+
+    
+    <div class="table-responsive">
+        <table class="table table-bordered mt-5">
+            <thead class="table-dark">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Date</th>
+            <th scope="col">Title</th>
+            <th scope="col">Url</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for gr in graphic %}
+          <tr>
+            <td>{{gr.graphic_no}}</td>
+            <td>{{gr.date}}</td>
+            <td>{{gr.title}}</td>
+            <td>
+                <a href="{{ gr.url }}" class="btn btn-success btn-sm" target="_blank">VISIT <i class="bi bi-box-arrow-up-right"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+         
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+    <footer class="pt-3 mt-4 text-body-secondary border-top fs-5 fw-bolder">
+      &copy; 2024 Rehan School 
+    </footer>
+
+    </div>
+
+
+
+
+{% endblock %}
