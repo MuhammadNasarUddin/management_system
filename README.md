@@ -1,8 +1,8 @@
 # Rehan School Management System
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/release/python-380/)
-[![Django Version](https://img.shields.io/badge/django-3.0%2B-brightgreen.svg)](https://www.djangoproject.com/download/)
+[![Python Version](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/downloads/release/python-312/)
+[![Django Version](https://img.shields.io/badge/django-5.0%2B-brightgreen.svg)](https://www.djangoproject.com/download/)
 
 ## Description
 
@@ -22,8 +22,6 @@ Rehan School Management System is a comprehensive web application built with Dja
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -31,3 +29,21 @@ Rehan School Management System is a comprehensive web application built with Dja
 
    ```bash
    git clone https://github.com/MuhammadNasarUddin/management_system
+   
+## Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+
+2. **Apply Migrations:**
+   ```bash
+   python manage.py migrate  
+
+3. **Create a superuser for the admin panel:**
+   ```bash
+   python manage.py createsuperuser
+
+4. **Run the Development Server:**
+   ```bash
+   python manage.py runserver   
